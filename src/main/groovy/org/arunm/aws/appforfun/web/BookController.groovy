@@ -23,7 +23,6 @@ class BookController {
 
     @GetMapping
     Iterable findAll() {
-        println "Inside FindAll"
         bookRepository.findAll()
     }
 
@@ -36,7 +35,6 @@ class BookController {
     Book findOne(@PathVariable Long id) {
         return bookRepository.findById(id)
                 .orElseThrow({
-            println "could not find book"
             new BookNotFoundException("InValid Book Id")
             });
     }
